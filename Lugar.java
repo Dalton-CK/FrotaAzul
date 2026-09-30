@@ -1,7 +1,7 @@
 public class Lugar
 {
     private String numeroLugar; // "A1"
-    private boolean isocupacao;
+    private boolean isocupado;
     private String autocarro;
     
     public Lugar()
@@ -9,8 +9,10 @@ public class Lugar
         
     }
     
-    public Lugar(String numeroLugar, boolean isocupacao, String autocarro)
+    public Lugar(String numeroLugar)
     {
-        
+        this.numeroLugar = numeroLugar;
+        this.isocupado = false;
+        this.autocarro = null;
     }
 }
