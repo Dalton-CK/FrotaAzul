@@ -1,4 +1,5 @@
 public class Parque
 {
-    public 
+    public String nome;
+    public String norada;
 }
