@@ -10,7 +10,8 @@ public class Autocarro
     // o construtor
     public Autocarro()
     {
-        
+        Autocarro a1 = new Autocarro();
+        System.out.println(a1.tostring());
     }
     
     public Autocarro(String matricula, String cor, int numLugar, boolean arCondicinado, double Kms)
@@ -84,30 +85,11 @@ public class Autocarro
         sb.append("\nNumero de lugar: " + this.numLugar);
         sb.append("\nAr-Condicionado: " + this.arCondicinado);
         sb.append("\nQuilometros: " + this.Kms);
-        sb.append("\n---------------------------------------------");
+        sb.append("\n---------------------------------------------"); 
+        
         
         resultado = sb.toString();
         return resultado;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
 }
