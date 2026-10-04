@@ -1,4 +1,19 @@
 #BlueJ class context
-#Fri Oct 02 12:08:05 WEST 2026
+#Sun Oct 04 22:35:48 WEST 2026
 comment0.target=Parque
-numComments=1
+comment1.target=Parque()
+comment10.target=java.lang.String toString()
+comment2.params=nome morada
+comment2.target=Parque(java.lang.String, java.lang.String)
+comment3.params=nome morada autocarro
+comment3.target=Parque(java.lang.String, java.lang.String, Autocarro)
+comment4.target=java.lang.String getnome()
+comment5.params=nome
+comment5.target=void setnome(java.lang.String)
+comment6.target=java.lang.String getmorada()
+comment7.params=morada
+comment7.target=void setmorada(java.lang.String)
+comment8.target=Autocarro getautocarro()
+comment9.params=autocarro
+comment9.target=void setautocarro(Autocarro)
+numComments=11

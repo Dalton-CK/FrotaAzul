@@ -1,16 +1,19 @@
 #BlueJ class context
-#Fri Oct 02 12:38:24 WEST 2026
+#Sun Oct 04 08:18:27 WEST 2026
 comment0.target=Lugar
 comment1.target=Lugar()
+comment10.target=java.lang.String tostring()
 comment2.params=numeroLugar
 comment2.target=Lugar(java.lang.String)
-comment3.target=java.lang.String getnumeroLugar()
-comment4.params=nL
-comment4.target=void setnumeroLugar(java.lang.String)
-comment5.target=boolean getisOcupado()
-comment6.params=ocupado
-comment6.target=void setisOcupado(boolean)
-comment7.target=java.lang.String getautocarro()
-comment8.params=auto
-comment8.target=void setautocarro(java.lang.String)
-numComments=9
+comment3.params=numeroLugar autocarro
+comment3.target=Lugar(java.lang.String, Autocarro)
+comment4.target=java.lang.String getnumeroLugar()
+comment5.params=nL
+comment5.target=void setnumeroLugar(java.lang.String)
+comment6.target=boolean getisOcupado()
+comment7.params=ocupado
+comment7.target=void setisOcupado(boolean)
+comment8.target=Autocarro getautocarro()
+comment9.params=autocarro
+comment9.target=void setautocarro(Autocarro)
+numComments=11
