@@ -9,12 +9,14 @@ public class Parque
     public Parque(){
     }
     
-    public Parque(String nome, String morada, int numDeLugares){
+    public Parque(String nome, String morada, int numDeLugares)
+    {
         this.nome = nome;
         this.morada = morada;
         this.lugares = new ArrayList<>();
         
-        for(int i = 0; i < numDeLugares; i++) {
+        for(int i = 0; i < numDeLugares; i++)
+        {
             int numLugar =  i;
             
             Lugar lTemp = new Lugar(numLugar);
@@ -23,27 +25,33 @@ public class Parque
         }
     }
     
-    public String getNome(){
+    public String getNome()
+    {
         return this.nome;
     } 
     
-    public String getMorada(){
+    public String getMorada()
+    {
         return morada;
     }
     
-    public void setNome(String nome){
+    public void setNome(String nome)
+    {
         this.nome = nome;
     }
     
-    public void setMorada(String morada){
+    public void setMorada(String morada)
+    {
         this.morada = morada;
     }
     
-    public int getNumDeLugares(){
+    public int getNumDeLugares()
+    {
         return numDeLugares;
     }
     
-    public void setNumDelugares(int numDeLugares){
+    public void setNumDelugares(int numDeLugares)
+    {
         this.numDeLugares = numDeLugares;
     }
     
@@ -51,7 +59,8 @@ public class Parque
         return lugares;
     }
     
-    public void adicionarLugar(Lugar novoLugar){
+    public void adicionarLugar(Lugar novoLugar)
+    {
         if(lugares.size() < numDeLugares){
             lugares.add(novoLugar);
         } else {
@@ -72,30 +81,35 @@ public class Parque
         return false;
     }
     
-    public boolean temLugaresDisponiveis()
+    public int LugarAvalible()
     {
-        for (int i = 0; i < this.lugares.size(); i++)
+        int temLugaresDisponiveis = 0;
+        for (Lugar l : this.lugares)
         {
-            if (!this.lugares.get(i).getIsOcupado())
+            if (! l.getIsOcupado())
             {
-                return true;
+                temLugaresDisponiveis = temLugaresDisponiveis + 1;
             }
         }
-        return false;
+        return temLugaresDisponiveis;
     }
     
-    public boolean retirarAutocarro(Autocarro a) {
-        for (int i = 0; i < this.lugares.size(); i++)
+    public boolean retirarAutocarro(Autocarro aRetirarAutocarro)
+    {
+        boolean retirarAutocarro = false;
+        for (Lugar l: this.lugares)
         {
-            if (this.lugares.get(i).getAutocarro() == a)
+            if (l.getIsOcupado() &&! l.getAutocarro().equals(aRetirarAutocarro))
             {
-                return this.lugares.get(i).desocuparLugar();
+                l.desocuparLugar();
+                return ! retirarAutocarro;
             }
         }
-        return false;
+        return retirarAutocarro;
     }
     
-     public Lugar procurarLugar(Autocarro a) {
+    public Lugar procurarLugar(Autocarro a)
+    {
         for (int i = 0; i < this.lugares.size(); i++)
         {
             if (this.lugares.get(i).getAutocarro() == a)
