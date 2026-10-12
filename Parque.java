@@ -1,82 +1,109 @@
+import java.util.ArrayList;
 public class Parque
 {
-    private String nome; // "Dalton"
-    private String morada; // "Av 23"
-    private Autocarro autocarro; // "AA-AA-AA"
+    private String nome;
+    private String morada;
+    private ArrayList<Lugar> lugares;
+    private int numDeLugares;
     
-    public Parque()
-    {
+    public Parque(){
+    }
+    
+    public Parque(String nome, String morada, int numDeLugares){
+        this.nome = nome;
+        this.morada = morada;
+        this.lugares = new ArrayList<>();
         
+        for(int i = 0; i < numDeLugares; i++) {
+            int numLugar =  i;
+            
+            Lugar lTemp = new Lugar(numLugar);
+            
+            this.lugares.add(lTemp);
+        }
     }
     
-    public Parque(String nome, String morada)
-    {
-        this.nome = nome;
-        this.morada = morada;
-        this.autocarro = null;
-    }
-    
-    public Parque(String nome, String morada, Autocarro autocarro)
-    {
-        this.nome = nome;
-        this.morada = morada;
-        this.autocarro = autocarro;
-    }
-    
-    // get e set nome
-    public String getnome()
-    {
+    public String getNome(){
         return this.nome;
+    } 
+    
+    public String getMorada(){
+        return morada;
     }
     
-    public void setnome(String nome)
-    {
+    public void setNome(String nome){
         this.nome = nome;
     }
     
-    // get e set morada
-    public String getmorada()
-    {
-        return this.morada;
-    }
-    
-    public void setmorada(String morada)
-    {
+    public void setMorada(String morada){
         this.morada = morada;
     }
     
-    // get e set autocarro
-    public Autocarro getautocarro()
-    {
-        return this.autocarro;
+    public int getNumDeLugares(){
+        return numDeLugares;
     }
     
-    public void setautocarro(Autocarro autocarro)
-    {
-        this.autocarro = autocarro;
+    public void setNumDelugares(int numDeLugares){
+        this.numDeLugares = numDeLugares;
     }
     
-    //toString
-    public String toString()
-    {
-        StringBuilder sb = new StringBuilder();
-        
-        sb.append("---------------------------------------------\n");
-        sb.append("Nome: " + this.nome);
-        sb.append("\nMorada: " + this.morada);
-        
-        if(this.autocarro == null)
-        {
-            sb.append("\nAutocarro: null");
-        }
-        else
-        {
-            sb.append("\nAutocarro:");
-            sb.append("\n" + this.autocarro.tostring());
-        }
-        
-        sb.append("\n---------------------------------------------");
-        
-        return sb.toString();
+    public ArrayList<Lugar> getLugares(){
+        return lugares;
     }
+    
+    public void adicionarLugar(Lugar novoLugar){
+        if(lugares.size() < numDeLugares){
+            lugares.add(novoLugar);
+        } else {
+            System.out.println("O parque está cheio");
+        }
+    }
+    
+
+    public boolean estacionar(Autocarro a){
+        for( int i = 0; i < this.lugares.size(); i++)
+        {
+            if(! this.lugares.get(i).getIsOcupado()){
+                this.lugares.get(i).estacionarAutocarro(a);
+
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean temLugaresDisponiveis()
+    {
+        for (int i = 0; i < this.lugares.size(); i++)
+        {
+            if (!this.lugares.get(i).getIsOcupado())
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean retirarAutocarro(Autocarro a) {
+        for (int i = 0; i < this.lugares.size(); i++)
+        {
+            if (this.lugares.get(i).getAutocarro() == a)
+            {
+                return this.lugares.get(i).desocuparLugar();
+            }
+        }
+        return false;
+    }
+    
+     public Lugar procurarLugar(Autocarro a) {
+        for (int i = 0; i < this.lugares.size(); i++)
+        {
+            if (this.lugares.get(i).getAutocarro() == a)
+            {
+                return this.lugares.get(i);
+            }
+        }
+        return null;
+    }
+
 }

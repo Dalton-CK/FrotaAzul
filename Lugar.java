@@ -1,83 +1,77 @@
-public class Lugar
+public class Lugar 
 {
-    private String numeroLugar; // "A1"
-    private boolean isOcupado; // true - false
-    private Autocarro autocarro; //"XX-XX-XX"
-    
-    public Lugar()
-    {
-        
-    }
-    
-    public Lugar(String numeroLugar)
-    {
-        this.numeroLugar = numeroLugar;
+    private int numLugar;
+    private boolean isOcupado;
+    private Autocarro autocarroEstacionado;
+
+    public Lugar() {
         this.isOcupado = false;
-        this.autocarro = null;
+        this.autocarroEstacionado = null;
     }
 
-    public Lugar(String numeroLugar, Autocarro autocarro)
+    public Lugar(int numLugar) 
     {
-        this.numeroLugar = numeroLugar;
+        this.numLugar = numLugar;
         this.isOcupado = false;
-        this.autocarro = autocarro;
+        this.autocarroEstacionado = null;
     }
-    
-    //get e set do Numero de lugar
-    public String getnumeroLugar()
+
+    public int getNumLugar() 
     {
-        return this.numeroLugar;
+        return this.numLugar;
     }
-    
-    public void setnumeroLugar(String nL)
+
+    public void setNumLugar(int numLugar) 
     {
-        this.numeroLugar = nL;
+        this.numLugar = numLugar;
     }
-    
-    //get e set do lugar ocupado
-    public boolean getisOcupado()
+
+    public boolean getIsOcupado() 
     {
         return this.isOcupado;
     }
-    
-    public void setisOcupado(boolean ocupado)
+
+    public void setOcupado(boolean isOcupado) 
     {
-        this.isOcupado = ocupado;
+        this.isOcupado = isOcupado;
     }
-    
-    //get e set do lugar Autocarro
-     public Autocarro getautocarro()
+
+    public Autocarro getAutocarro() 
     {
-        return this.autocarro;
+        return this.autocarroEstacionado;
     }
-    public void setautocarro(Autocarro autocarro)
+
+    public boolean estacionarAutocarro(Autocarro a) 
     {
-        this.autocarro = autocarro;
-    }
-    public String tostring()
-    {
-        String resultado = "ToString";
-        
-        StringBuilder sb = new StringBuilder();
-        
-        sb.append("---------------------------------------------\n");
-        sb.append("Numero de Lugar: " + this.numeroLugar);
-        sb.append("\nOcupado: " + this.isOcupado);
-        
-        if(this.autocarro == null)
-        {
-            sb.append("\nAutocarro: null\n");
-        }
-        else
-        {
-            sb.append("\nAutocarro: \n");
-            sb.append(this.autocarro.tostring());
+        if (!this.isOcupado) {
+            this.autocarroEstacionado = a;
+            this.isOcupado = true;
+            return true;
         }
 
-        sb.append("\n---------------------------------------------"); 
-        
-        
-        resultado = sb.toString();
-        return resultado;
+        return false;
+    }
+
+    public boolean desocuparLugar() 
+    {
+        if (this.isOcupado) {
+            this.isOcupado = false;
+            this.autocarroEstacionado = null;
+            return true;
+        }
+
+        return false;
+    }
+
+    public String toString() 
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n--------------------------------------------------------\n");
+        sb.append("N. Lugar: " + this.numLugar);
+        sb.append("\nOcupado: " + this.isOcupado);
+        sb.append("\nAutocarro estacionado: " + this.autocarroEstacionado);
+        sb.append("\n--------------------------------------------------------");
+
+        return sb.toString();
     }
 }

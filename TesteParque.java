@@ -1,86 +1,68 @@
-/**
- * Escreva uma descrição da classe TesteParque aqui.
- * 
- * @author (seu nome) 
- * @version (um número da versão ou uma data)
- */
 public class TesteParque
 {
     public static void main(String[] args)
     {
-        Parque p1 = new Parque("DK", "Av 23");
+        Parque p1 = new Parque("DK", "Av 23", 5);
 
         String Objeto = p1.toString();
         System.out.println(Objeto);
         
-        String par = p1.getnome();
+        String par = p1.getNome();
         if(par.equals("DK"))
         {
-            System.out.println("O nome do parque antes de alterar passou: " + p1.getnome());
+            System.out.println("O nome do parque antes de alterar passou: " + p1.getNome());
         }
         else
         {
-            System.out.println("O nome do parque antes de alterar não passou: " + p1.getnome());
+            System.out.println("O nome do parque antes de alterar não passou: " + p1.getNome());
         }
         
-        p1.setnome("Kenay");
+        p1.setNome("Kenay");
         
-        String par2 = p1.getnome();
+        String par2 = p1.getNome();
         if(par2.equals("Kenay"))
         {
-            System.out.println("O nome do parque depois de alterar passou: " + p1.getnome());
+            System.out.println("O nome do parque depois de alterar passou: " + p1.getNome());
         }
         else
         {
-            System.out.println("O nome do parque depois de alterar não passou: " + p1.getnome());
+            System.out.println("O nome do parque depois de alterar não passou: " + p1.getNome());
         }
         
         // get morada e set morada
-        String mor = p1.getmorada();
+        String mor = p1.getMorada();
         if(mor.equals("Av 23"))
         {
-            System.out.println("A morada do parque antes de alterar passou: " + p1.getmorada());
+            System.out.println("A morada do parque antes de alterar passou: " + p1.getMorada());
         }
         else
         {
-            System.out.println("A morada do parque antes de alterar não passou: " + p1.getmorada());
+            System.out.println("A morada do parque antes de alterar não passou: " + p1.getMorada());
         }
         
-        p1.setmorada("Av 25");
+        p1.setMorada("Av 25");
         
-        String mor1 = p1.getmorada();
+        String mor1 = p1.getMorada();
         if(mor1.equals("Av 25"))
         {
-            System.out.println("A morada do parque depois de alterar passou: " + p1.getmorada());
+            System.out.println("A morada do parque depois de alterar passou: " + p1.getMorada());
         }
         else
         {
-            System.out.println("A morada do parque depois de alterar não passou: " + p1.getmorada());
+            System.out.println("A morada do parque depois de alterar não passou: " + p1.getMorada());
         }
         
-        // get autocarro e set autocarro
-        Autocarro auto = p1.getautocarro();
-
-        if(auto == null)
-        {
-            System.out.println("O teste get e set ao autocarro passou com o valor: " + p1.getautocarro());
-        }
-        else
-        {
-            System.out.println("O teste get e set ao autocarro não passou com o valor: " + p1.getautocarro());
-        }
-        
+        // Testar estacionamento do autocarro
         Autocarro a2 = new Autocarro("AA-11-BB", "Azul", 102, true, 12.0);
-        p1.setautocarro(a2);
-        Autocarro auto1 = p1.getautocarro();
 
-        if(auto1 == a2)
+        boolean estacionado = p1.estacionar(a2);
+        if(estacionado)
         {
-            System.out.println("O teste get e set ao autocarro passou com o valor: ");
+            System.out.println("O autocarro foi estacionado com sucesso.");
         }
         else
         {
-            System.out.println("O teste get e set ao autocarro não passou com o valor: ");
+            System.out.println("Não foi possível estacionar o autocarro.");
         }
         
         // Estado final
