@@ -108,16 +108,16 @@ public class Parque
         return retirarAutocarro;
     }
     
-    public Lugar procurarLugar(Autocarro a)
+    public Lugar procurarLugar(String matricula)
     {
-        for (int i = 0; i < this.lugares.size(); i++)
+        for (Lugar l: this.lugares)
         {
-            if (this.lugares.get(i).getAutocarro() == a)
+            if (l.getIsOcupado() && l.getAutocarro().getmatricula() == matricula)
             {
-                return this.lugares.get(i);
+                return l;
             }
         }
-        return null;
+        Lugar lugar = null;
+        return lugar;
     }
-
 }

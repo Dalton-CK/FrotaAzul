@@ -2,71 +2,75 @@ public class TesteParque
 {
     public static void main(String[] args)
     {
-        Parque p1 = new Parque("DK", "Av 23", 5);
-
-        String Objeto = p1.toString();
-        System.out.println(Objeto);
+        //teste 1
+        /**
+           testar o contrutor
+        **/
         
-        String par = p1.getNome();
-        if(par.equals("DK"))
-        {
-            System.out.println("O nome do parque antes de alterar passou: " + p1.getNome());
-        }
-        else
-        {
-            System.out.println("O nome do parque antes de alterar não passou: " + p1.getNome());
-        }
+        String testeNome = "DK";
+        String testeMorada = "Av 23";
+        int numLugar = 5;
+        Parque p1 = new Parque(testeNome, testeMorada, numLugar);
         
-        p1.setNome("Kenay");
+        String nome = p1.getNome();
+        System.out.println("Inicio do teste nome");
+        if(nome == testeNome){
+            System.out.println("Teste do nome parque passou: " + p1.getNome());
+        }else{
+            System.out.println("Teste do nome parque não passou: " + p1.getNome());
+        }
+        System.out.println("Fim do teste Nome");
         
-        String par2 = p1.getNome();
-        if(par2.equals("Kenay"))
-        {
-            System.out.println("O nome do parque depois de alterar passou: " + p1.getNome());
-        }
-        else
-        {
-            System.out.println("O nome do parque depois de alterar não passou: " + p1.getNome());
-        }
+        // get morada
+        String morada = p1.getMorada();
+        System.out.println("Inicio do teste Morada");
         
-        // get morada e set morada
-        String mor = p1.getMorada();
-        if(mor.equals("Av 23"))
-        {
-            System.out.println("A morada do parque antes de alterar passou: " + p1.getMorada());
+        if(morada == testeMorada){
+            System.out.println("Teste do Morada parque passou: " + p1.getMorada());
+        }else{
+            System.out.println("Teste do Morada parque não passou: " + p1.getMorada());
         }
-        else
-        {
-            System.out.println("A morada do parque antes de alterar não passou: " + p1.getMorada());
-        }
+        System.out.println("Fim do teste Morada");
         
-        p1.setMorada("Av 25");
+        int lugar = p1.getNumDeLugares();
+        System.out.println("Inicio do teste numero de lugar");
         
-        String mor1 = p1.getMorada();
-        if(mor1.equals("Av 25"))
-        {
-            System.out.println("A morada do parque depois de alterar passou: " + p1.getMorada());
+        if(lugar == numLugar){
+            System.out.println("Teste do lugar parque passou: " + p1.getMorada());
+        }else{
+            System.out.println("Teste do lugar parque não passou: " + p1.getMorada());
         }
-        else
-        {
-            System.out.println("A morada do parque depois de alterar não passou: " + p1.getMorada());
-        }
+        System.out.println("fim do teste numero de lugar");
         
-        // Testar estacionamento do autocarro
-        Autocarro a2 = new Autocarro("AA-11-BB", "Azul", 102, true, 12.0);
-
-        boolean estacionado = p1.estacionar(a2);
-        if(estacionado)
-        {
-            System.out.println("O autocarro foi estacionado com sucesso.");
-        }
-        else
-        {
-            System.out.println("Não foi possível estacionar o autocarro.");
-        }
+        //teste estacionar
+        Autocarro a1 = new Autocarro("AA-11-BB", "Azul", 102, true, 12.0);
         
-        // Estado final
-        System.out.println("\nEstado final:");
-        System.out.println(p1.toString());
+        int lugaresAntesEstacionar = p1.LugarAvalible();
+        p1.estacionar(a1);
+        int lugaresDepoisEstacionar = p1.LugarAvalible();
+        
+        System.out.println("Inicio do teste estacionar");
+        if(lugaresAntesEstacionar > lugaresDepoisEstacionar){
+            System.out.println("O metodo estacionar passou: ");
+        }else{
+            System.out.println("O metodo estacionar não passou: ");
+        }
+        System.out.println("Fim do teste estacionar");
+        
+        //teste removerautocaro
+        int lugarAntesremover = p1.LugarAvalible();
+        
+        p1.retirarAutocarro(a1);
+        
+        int lugarDepoisremover = p1.LugarAvalible();
+        
+        System.out.println("Inicio do teste remover");
+        if(lugarAntesremover < lugarDepoisremover){
+            System.out.println("O teste remover passou: ");
+        }else{
+            System.out.println("O teste remover não passou: ");
+        }
+        System.out.println("Fim do teste remover ");
+        
     }
 }
