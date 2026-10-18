@@ -1,5 +1,8 @@
 #BlueJ class context
+#Sun Oct 18 08:59:11 WEST 2026
 comment0.target=TesteParque
-comment1.params=args
-comment1.target=void\ main(java.lang.String[])
-numComments=2
+comment1.params=valor esperado nomeAtributo
+comment1.target=boolean testar(java.lang.Object, java.lang.Object, java.lang.String)
+comment2.params=args
+comment2.target=void main(java.lang.String[])
+numComments=3

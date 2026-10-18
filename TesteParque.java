@@ -1,10 +1,28 @@
 public class TesteParque
 {
+    // Método para tirar as repetições
+    static boolean testar(Object valor, Object esperado, String nomeAtributo) {
+        System.out.println("Inicio do teste " + nomeAtributo);
+        
+        boolean passou = valor.equals(esperado);
+        
+        if (passou) {
+            System.out.println("Teste do " + nomeAtributo + " passou: " + valor);
+        } else {
+            System.out.println("Teste do " + nomeAtributo + " não passou: " + valor);
+        }
+        
+        System.out.println("Fim do teste " + nomeAtributo);
+        System.out.println();
+        
+        return passou;
+    }
+
     public static void main(String[] args)
     {
         //teste 1
         /**
-           testar o contrutor
+           testar o construtor
         **/
         
         String testeNome = "DK";
@@ -12,35 +30,22 @@ public class TesteParque
         int numLugar = 5;
         Parque p1 = new Parque(testeNome, testeMorada, numLugar);
         
-        String nome = p1.getNome();
-        System.out.println("Inicio do teste nome");
-        if(nome == testeNome){
-            System.out.println("Teste do nome parque passou: " + p1.getNome());
-        }else{
-            System.out.println("Teste do nome parque não passou: " + p1.getNome());
-        }
-        System.out.println("Fim do teste Nome");
+        //O metudo nome 
+        testar(p1.getNome(), testeNome, "nome");
         
-        // get morada
-        String morada = p1.getMorada();
-        System.out.println("Inicio do teste Morada");
+        String novoNome = "Estacio";
+        p1.setNome(novoNome);
+        testar(p1.getNome(), novoNome, "nome");
         
-        if(morada == testeMorada){
-            System.out.println("Teste do Morada parque passou: " + p1.getMorada());
-        }else{
-            System.out.println("Teste do Morada parque não passou: " + p1.getMorada());
-        }
-        System.out.println("Fim do teste Morada");
+        testar(p1.getMorada(), testeMorada, "morada");
+        String novaMorada = "av 34 loures";
+        p1.setNome(novaMorada);
+        testar(p1.getNome(), novaMorada, "nome");
         
-        int lugar = p1.getNumDeLugares();
-        System.out.println("Inicio do teste numero de lugar");
-        
-        if(lugar == numLugar){
-            System.out.println("Teste do lugar parque passou: " + p1.getMorada());
-        }else{
-            System.out.println("Teste do lugar parque não passou: " + p1.getMorada());
-        }
-        System.out.println("fim do teste numero de lugar");
+        testar(p1.getNumDeLugares(), numLugar, "numero de lugares");
+        String novoNumLugar = "34";
+        p1.setNome(novoNumLugar);
+        testar(p1.getNome(), novoNumLugar, "nome");
         
         //teste estacionar
         Autocarro a1 = new Autocarro("AA-11-BB", "Azul", 102, true, 12.0);
@@ -59,9 +64,7 @@ public class TesteParque
         
         //teste removerautocaro
         int lugarAntesremover = p1.LugarAvalible();
-        
         p1.retirarAutocarro(a1);
-        
         int lugarDepoisremover = p1.LugarAvalible();
         
         System.out.println("Inicio do teste remover");
@@ -71,6 +74,5 @@ public class TesteParque
             System.out.println("O teste remover não passou: ");
         }
         System.out.println("Fim do teste remover ");
-        
     }
 }
