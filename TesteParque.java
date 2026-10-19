@@ -1,9 +1,8 @@
 public class TesteParque
 {
     // Método para tirar as repetições
-    static boolean testar(Object valor, Object esperado, String nomeAtributo) {
+    public static boolean iniciarTeste(Object valor, Object esperado, String nomeAtributo) {
         System.out.println("Inicio do teste " + nomeAtributo);
-        
         boolean passou = valor.equals(esperado);
         
         if (passou) {
@@ -13,7 +12,6 @@ public class TesteParque
         }
         
         System.out.println("Fim do teste " + nomeAtributo);
-        System.out.println();
         
         return passou;
     }
@@ -31,21 +29,21 @@ public class TesteParque
         Parque p1 = new Parque(testeNome, testeMorada, numLugar);
         
         //O metudo nome 
-        testar(p1.getNome(), testeNome, "nome");
+        iniciarTeste(p1.getNome(), testeNome, "nome");
         
         String novoNome = "Estacio";
         p1.setNome(novoNome);
-        testar(p1.getNome(), novoNome, "nome");
+        iniciarTeste(p1.getNome(), novoNome, "nome");
         
-        testar(p1.getMorada(), testeMorada, "morada");
+        iniciarTeste(p1.getMorada(), testeMorada, "morada");
         String novaMorada = "av 34 loures";
         p1.setNome(novaMorada);
-        testar(p1.getNome(), novaMorada, "nome");
+        iniciarTeste(p1.getNome(), novaMorada, "nome");
         
-        testar(p1.getNumDeLugares(), numLugar, "numero de lugares");
+        iniciarTeste(p1.getNumDeLugares(), numLugar, "numero de lugares");
         String novoNumLugar = "34";
         p1.setNome(novoNumLugar);
-        testar(p1.getNome(), novoNumLugar, "nome");
+        iniciarTeste(p1.getNome(), novoNumLugar, "nome");
         
         //teste estacionar
         Autocarro a1 = new Autocarro("AA-11-BB", "Azul", 102, true, 12.0);
