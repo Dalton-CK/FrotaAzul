@@ -1,0 +1,14 @@
+#BlueJ class context
+#Mon Oct 19 20:33:40 WEST 2026
+comment0.target=Mensagem
+comment1.params=nomeDoTeste
+comment1.target=void iniciarTeste(java.lang.String)
+comment2.params=nomeDoTeste
+comment2.target=void fimTeste(java.lang.String)
+comment3.params=nomeDoTeste
+comment3.target=void passou(java.lang.String)
+comment4.params=nomeDoTeste
+comment4.target=void naoPassou(java.lang.String)
+comment5.params=nomeDoTeste resultadoDoTeste
+comment5.target=void mensagemDoValidarTeste(java.lang.String, boolean)
+numComments=6

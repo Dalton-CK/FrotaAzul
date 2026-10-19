@@ -1,76 +1,75 @@
 public class TesteParque
 {
-    // Método para tirar as repetições
-    public static boolean iniciarTeste(Object valor, Object esperado, String nomeAtributo) {
-        System.out.println("Inicio do teste " + nomeAtributo);
-        boolean passou = valor.equals(esperado);
-        
-        if (passou) {
-            System.out.println("Teste do " + nomeAtributo + " passou: " + valor);
-        } else {
-            System.out.println("Teste do " + nomeAtributo + " não passou: " + valor);
-        }
-        
-        System.out.println("Fim do teste " + nomeAtributo);
-        
-        return passou;
-    }
-
     public static void main(String[] args)
     {
-        //teste 1
-        /**
-           testar o construtor
-        **/
-        
         String testeNome = "DK";
         String testeMorada = "Av 23";
-        int numLugar = 5;
+        int numLugar = 1;
+        
         Parque p1 = new Parque(testeNome, testeMorada, numLugar);
+        Mensagem msg = new Mensagem();
         
-        //O metudo nome 
-        iniciarTeste(p1.getNome(), testeNome, "nome");
+        String nomeP = p1.getNome();
+        String nomeTeste1 = "Get nome";
+        msg.iniciarTeste(nomeTeste1);
+        if(nomeP.equals(testeNome)){
+            msg.mensagemDoValidarTeste(nomeTeste1, true);    
+        } else{
+            msg.mensagemDoValidarTeste(nomeTeste1, false);
+        }
+        msg.fimTeste(nomeTeste1);
         
-        String novoNome = "Estacio";
-        p1.setNome(novoNome);
-        iniciarTeste(p1.getNome(), novoNome, "nome");
+        String nomeTeste2 = "Get morada";
+        msg.iniciarTeste(nomeTeste2);
+        String moradaP = p1.getMorada();
+        if(moradaP.equals(testeMorada)){
+            msg.mensagemDoValidarTeste(nomeTeste2, true);    
+        } else{
+            msg.mensagemDoValidarTeste(nomeTeste2, false);
+        }
+        msg.fimTeste(nomeTeste2);
+       
+       
+        String nomeTeste3 = "Get lugares";
+        msg.iniciarTeste(nomeTeste3);
+        int lugares = p1.getNumDeLugares();
+        if(lugares == numLugar ){
+            msg.mensagemDoValidarTeste(nomeTeste3, true);    
+        } else{
+            msg.mensagemDoValidarTeste(nomeTeste3, false);
+        }
+        msg.fimTeste(nomeTeste3);
         
-        iniciarTeste(p1.getMorada(), testeMorada, "morada");
-        String novaMorada = "av 34 loures";
-        p1.setNome(novaMorada);
-        iniciarTeste(p1.getNome(), novaMorada, "nome");
-        
-        iniciarTeste(p1.getNumDeLugares(), numLugar, "numero de lugares");
-        String novoNumLugar = "34";
-        p1.setNome(novoNumLugar);
-        iniciarTeste(p1.getNome(), novoNumLugar, "nome");
-        
-        //teste estacionar
+        //3.Teste ao metodo estacionarAutocarro
         Autocarro a1 = new Autocarro("AA-11-BB", "Azul", 102, true, 12.0);
         
         int lugaresAntesEstacionar = p1.LugarAvalible();
         p1.estacionar(a1);
         int lugaresDepoisEstacionar = p1.LugarAvalible();
         
-        System.out.println("Inicio do teste estacionar");
+        String nomeTeste4 = "estacionar";
+        msg.iniciarTeste(nomeTeste4);
+
         if(lugaresAntesEstacionar > lugaresDepoisEstacionar){
-            System.out.println("O metodo estacionar passou: ");
-        }else{
-            System.out.println("O metodo estacionar não passou: ");
+           msg.mensagemDoValidarTeste(nomeTeste4, true);    
+        } else{
+           msg.mensagemDoValidarTeste(nomeTeste4, false);
         }
-        System.out.println("Fim do teste estacionar");
+        msg.fimTeste(nomeTeste4);
         
-        //teste removerautocaro
+        //4.Teste ao metodo removerAutocarro
         int lugarAntesremover = p1.LugarAvalible();
         p1.retirarAutocarro(a1);
         int lugarDepoisremover = p1.LugarAvalible();
         
-        System.out.println("Inicio do teste remover");
+        String nomeTeste5 = "Remover autocarro";
+        msg.iniciarTeste(nomeTeste5);
+
         if(lugarAntesremover < lugarDepoisremover){
-            System.out.println("O teste remover passou: ");
-        }else{
-            System.out.println("O teste remover não passou: ");
+           msg.mensagemDoValidarTeste(nomeTeste5, true);    
+        } else{
+           msg.mensagemDoValidarTeste(nomeTeste5, false);
         }
-        System.out.println("Fim do teste remover ");
+        msg.fimTeste(nomeTeste5);
     }
 }

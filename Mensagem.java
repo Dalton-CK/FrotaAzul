@@ -1,33 +1,21 @@
-
-/**
- * Escreva uma descrição da classe Mensagem aqui.
- * 
- * @author (seu nome) 
- * @version (um número da versão ou uma data)
- */
-public class Mensagem
-{
-    // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-    private int x;
-
-    /**
-     * Construtor para objetos da classe Mensagem
-     */
-    public Mensagem()
-    {
-        // inicializa variáveis de instância
-        x = 0;
+public class Mensagem {
+    public static void iniciarTeste(String nomeDoTeste) {
+        System.out.println("O teste iniciou - " + nomeDoTeste);
     }
-
-    /**
-     * Um exemplo de um método - substitua este comentário pelo seu próprio
-     * 
-     * @param  y   um exemplo de um parâmetro de método
-     * @return     a soma de x e y 
-     */
-    public int sampleMethod(int y)
-    {
-        // escreva seu código aqui
-        return x + y;
+    public static void fimTeste(String nomeDoTeste) {
+        System.out.println("Fim do teste - " + nomeDoTeste + ".\n");
+    }
+    public static void passou(String nomeDoTeste) {
+        System.out.println("Okay: o teste - " +  nomeDoTeste + " passou.");
+    }
+    public static void naoPassou(String nomeDoTeste) {
+        System.out.println("Okay: o teste - " +  nomeDoTeste + " não passou.");
+    }
+    public static void mensagemDoValidarTeste(String nomeDoTeste, boolean resultadoDoTeste) {
+        if(resultadoDoTeste) {
+            System.out.println("Okay: o teste - " +  nomeDoTeste + " passou.");
+        } else {
+            System.out.println("Okay: o teste - " +  nomeDoTeste + " não passou.");
+        }
     }
 }

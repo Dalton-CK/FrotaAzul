@@ -13,6 +13,7 @@ public class Parque
     {
         this.nome = nome;
         this.morada = morada;
+        this.numDeLugares = numDeLugares;   // CORREÇÃO 1: linha adicionada
         this.lugares = new ArrayList<>();
         
         for(int i = 0; i < numDeLugares; i++)
@@ -99,7 +100,7 @@ public class Parque
         boolean retirarAutocarro = false;
         for (Lugar l: this.lugares)
         {
-            if (l.getIsOcupado() &&! l.getAutocarro().equals(aRetirarAutocarro))
+            if (l.getIsOcupado() && l.getAutocarro().equals(aRetirarAutocarro))   // CORREÇÃO 2: removido o "!"
             {
                 l.desocuparLugar();
                 return ! retirarAutocarro;
